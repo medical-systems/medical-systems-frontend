@@ -30,7 +30,7 @@ export default function LoginForm(props) {
                   type="text"
                   required
                   placeholder="Enter your username"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 p-5"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:text-sm sm:leading-6 p-5"
                 />
               </div>
             </div>
@@ -40,11 +40,11 @@ export default function LoginForm(props) {
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                   Password
                 </label>
-                <div className="text-sm">
+                {/* <div className="text-sm">
                   <a href="#" className="font-semibold text-blue-600 hover:text-indigo-500">
                     Forgot password?
                   </a>
-                </div>
+                </div> */}
               </div>
               <div className="mt-2">
                 <input
@@ -54,7 +54,7 @@ export default function LoginForm(props) {
                   autoComplete="current-password"
                   required
                   placeholder="Enter your password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 p-5"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:text-sm sm:leading-6 p-5"
                 />
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function LoginForm(props) {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
               </button>
@@ -71,7 +71,7 @@ export default function LoginForm(props) {
 
           <p className="mt-10 text-sm text-center text-gray-500">
             New to eDental{' '}
-            <a href="#" className="font-semibold leading-6 text-blue-600 hover:text-indigo-500">
+            <a href="#" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
               Sign up
             </a>
           </p>
