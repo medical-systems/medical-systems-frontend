@@ -1,43 +1,16 @@
+import React, { useEffect, useState } from 'react';
+import { Card, CardHeader, CardBody, Typography } from "@material-tailwind/react";
+
 const people = [
   {
     id: 1,
     name: 'Wade Cooper',
     avatar:
-      'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      'https://www.aspiredental.ca/wp-content/uploads/2023/03/how-do-your-gums-heal-after-a-tooth-extraction-scaled.jpg',
       additionalInfo: 'Dr. Wade Cooper is a specialist in orthopedics...',
 
   },
-  {
-    id: 2,
-    name: 'Arlene Mccoy',
-    avatar:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Arlene Mccoy is a specialist in orthopedics...',
-
-  },
-  {
-    id: 3,
-    name: 'Devon Webb',
-    avatar:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Devon Webb is a specialist in orthopedics...',
-  },
-  {
-    id: 4,
-    name: 'Tom Cook',
-    avatar:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Tom Cook is a specialist in orthopedics...',
-
-  },
-  {
-    id: 5,
-    name: 'Tanya Fox',
-    avatar:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Tanya Fox is a specialist in orthopedics...',
-
-  },
+ 
   {
     id: 6,
     name: 'Hellen Schmidt',
@@ -79,3 +52,38 @@ const people = [
 
   },
 ]
+
+export default function HorizontalCard() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % people.length);
+    }, 3500); // Change every 3.5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className=" w-full flex justify-center items-center h-screen bg-gray-100">
+      <Card className="animate-pulse w-full max-w-3xl flex-row shadow-lg">
+        <CardHeader
+          shadow={false}
+          floated={false}
+          className="m-0 w-2/5 shrink-0 rounded-r-none"
+        >
+          <img
+            src={people[currentIndex]?.avatar}
+            alt= ""height={500} width={500}
+            className="h-full w-full object-cover"
+          />
+        </CardHeader>
+        <CardBody>
+          <Typography color="gray" className="animate-pulse mb-8 font-normal">
+            {people[currentIndex]?.additionalInfo}
+          </Typography>
+        </CardBody>
+      </Card>
+    </div>
+  );
+}

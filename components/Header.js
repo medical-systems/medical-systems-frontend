@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const Header = () => {
     const phrases = [
-        "Welcon To eDental Clincs",
+        "Welcom To eDental Clincs",
         "Your Perfect Smile Starts Here",
         "Crafting healthy and beautiful smiles",
         "A Destination for Exceptional Dental Care",
@@ -27,7 +27,7 @@ const Header = () => {
             </div>
 
             <div className="text-center absolute inset-0 flex  items-center justify-center mb-40">
-               <div className=" bg-slate-200 bg-opacity-5  max-w-90 max-h-90 p-9  "  >
+               <div className=" bg-slate-200 bg-opacity-4  max-w-90 max-h-90 p-9  "  >
                <h1 className="animate-pulse  fadeInRight animate-slow text-4xl">
                     {phrases[currentIndex]}
                 </h1>
@@ -36,6 +36,7 @@ const Header = () => {
             </div>
 
         </div>
+        
     );
 };
 
