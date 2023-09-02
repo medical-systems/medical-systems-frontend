@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import {teamMembers} from "@/data";
+import { teamMembers } from "@/data";
 import Link from "next/link";
 
 export default function About() {
@@ -44,12 +44,11 @@ export default function About() {
                 {member.name}
               </div>
               <p
-                className={`text-gray-700 dark:text-gray-300 ${
-                  expandedMembers.includes(index) ? "block" : "truncate"
-                }`}
+                className={`text-gray-700 dark:text-gray-300 ${expandedMembers.includes(index) ? "block" : "truncate"
+                  }`}
               >
                 {expandedMembers.includes(index) ||
-                member.description.length <= 2
+                  member.description.length <= 2
                   ? member.description
                   : truncateBio(member.description)}
               </p>
