@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Footer from "./Footer";
 import Aboutus from "../components/About";
 import ABooking from "@/components/AppointmentForm";
+import { useAuth } from "@/contexts/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +18,7 @@ export default function Home() {
     login(username, password)
   }
   return (
-    <div>
-
-      <Aboutus />
-      {/* <ABooking/> */}
-      <Footer />
-      
-    </div>
+    <>
+    </>
   );
 }
