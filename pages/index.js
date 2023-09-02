@@ -21,9 +21,9 @@ export default function Home() {
       <Head>
         <title>eDental</title>
       </Head>
-      <div className="flex items-center h-screen w-screen bg-gray-200">
-        <LoginForm handler={loginFormHandler} />
-        {/* <SignupForm /> */}
+      <div className="flex items-center h-screen w-screen bg-[url('/login_background1.jpeg')]">
+        {/* <LoginForm handler={loginFormHandler} /> */}
+        <SignupForm />
 
       </div>
     </>
