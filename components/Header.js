@@ -22,12 +22,12 @@ const Header = () => {
         <div className="start-page relative h-screen">
             <div>
                 <video autoPlay loop muted className="background-video absolute inset-0 w-full h-3/5 object-cover object-center">
-                    <source src="/backgroundVideo.mp4" type="video/mp4" />
+                    <source src="/dental_clinic5.mp4" type="video/mp4" />
                 </video>
             </div>
 
             <div className="text-center absolute inset-0 flex  items-center justify-center mb-40">
-               <div className=" bg-slate-200 bg-opacity-4  max-w-90 max-h-90 p-9  "  >
+               <div className=" bg-slate-200 bg-opacity-5  max-w-90 max-h-90 p-9  "  >
                <h1 className="animate-pulse  fadeInRight animate-slow text-4xl">
                     {phrases[currentIndex]}
                 </h1>
