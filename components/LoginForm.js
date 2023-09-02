@@ -3,13 +3,13 @@ import Image from "next/image"
 export default function LoginForm(props) {
   return (
     <>
-      <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
+      <div className="flex flex-col justify-center flex-1 h-screen min-h-full px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Image
             className="w-3/5 mx-auto"
             width={400}
             height={300}
-            src="/edental_logo.png"
+            src="/logo1.png"
             alt="Your Company"
           />
           <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">

@@ -12,6 +12,12 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      boxShadow: {
+        // Define custom shadow sizes and colors
+        'custom-sm': '0 4px 6px rgba(255, 0, 0, 0.5)',
+        'custom-md': '0 8px 12px rgba(255, 0, 0, 0.5)',
+        'custom-lg': '0 12px 18px rgba(255, 0, 0, 0.5)',
+      },
     },
   },
   plugins: [],

@@ -1,6 +1,9 @@
 import LoginForm from "@/components/LoginForm"
+import SignupForm from "@/components/SignupForm"
 import Head from "next/head"
 import { useAuth } from "@/contexts/auth";
+
+
 
 
 export default function Home() {
@@ -13,14 +16,15 @@ export default function Home() {
     login(username, password)
   }
 
-  
   return (
     <>
       <Head>
         <title>eDental</title>
       </Head>
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center h-screen w-screen bg-gray-200">
         <LoginForm handler={loginFormHandler} />
+        {/* <SignupForm /> */}
+
       </div>
     </>
   )
