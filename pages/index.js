@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div>
 
-      {/* <Aboutus /> */}
-      <ABooking/>
-      {/* <Footer /> */}
+      <Aboutus />
+      {/* <ABooking/> */}
+      <Footer />
       
     </div>
   );
