@@ -1,6 +1,6 @@
 import AppointmentList from "@/components/AppointmentList"
 import ListOfDoctors from "@/components/ListOfDoctors"
-import AppointmentForm from "@/components/AppointmentForm"
+import AppointmentForm from "@/components/FirstSecInBooking"
 import TimeInput from "@/components/Footer"
 import BookingForm from "@/components/BookingForm";
 import DateTime from "@/components/DateTime";
