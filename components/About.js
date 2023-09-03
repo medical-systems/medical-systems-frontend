@@ -1,81 +1,40 @@
-const people = [
-  {
-    id: 1,
-    name: 'Wade Cooper',
-    avatar:
-      'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Wade Cooper is a specialist in orthopedics...',
+import React from "react";
+import TeamMemberCard from "./TeamMemberCard";
 
-  },
-  {
-    id: 2,
-    name: 'Arlene Mccoy',
-    avatar:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Arlene Mccoy is a specialist in orthopedics...',
+export default function Aboutus() {
+  return (
+    <>
+      <div className="bg-white dark:bg-gray-900 min-h-screen relative">
+        <div className="flex justify-center h-full">
+          <div className="flex items-center justify-center w-full bg-gray-200"> {/* Change this line */}
+            <img
+              src="https://www.bing.com/th/id/OGC.86f02ef3fe9731b8608381971fbad9c5?pid=1.7&rurl=https%3a%2f%2fi.pinimg.com%2foriginals%2f08%2f6e%2fd2%2f086ed2d569d8a90795ca431b35ad9446.gif&ehk=qGRwF5zkGhuSxSUFBG1I99nfyEYFpMVdEJWnFYUf3Do%3d"
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-  },
-  {
-    id: 3,
-    name: 'Devon Webb',
-    avatar:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Devon Webb is a specialist in orthopedics...',
-  },
-  {
-    id: 4,
-    name: 'Tom Cook',
-    avatar:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Tom Cook is a specialist in orthopedics...',
+          <div className="flex justify-center items-center w-full h-full px-20 absolute top-0 left-0 ">
+            <div className="bg-black bg-opacity-60 px-20">
+              <h2 className="text-center text-6xl font-bold text-white sm:text-5xl mt-5">
+                eDental Care
+              </h2>
 
-  },
-  {
-    id: 5,
-    name: 'Tanya Fox',
-    avatar:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Tanya Fox is a specialist in orthopedics...',
-
-  },
-  {
-    id: 6,
-    name: 'Hellen Schmidt',
-    avatar:
-      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Hellen Schmidt is a specialist in orthopedics...',
-
-  },
-  {
-    id: 7,
-    name: 'Caroline Schultz',
-    avatar:
-      'https://images.unsplash.com/photo-1568409938619-12e139227838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Caroline Schultz is a specialist in orthopedics...',
-
-  },
-  {
-    id: 8,
-    name: 'Mason Heaney',
-    avatar:
-      'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Mason Heaney is a specialist in orthopedics...',
-
-  },
-  {
-    id: 9,
-    name: 'Claudie Smitham',
-    avatar:
-      'https://images.unsplash.com/photo-1584486520270-19eca1efcce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Claudie Smitham is a specialist in orthopedics...',
-
-  },
-  {
-    id: 10,
-    name: 'Emil Schaefer',
-    avatar:
-      'https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Emil Schaefer is a specialist in orthopedics...',
-
-  },
-]
+              <p className="max-w-xl mt-6 text-white text-3xl mb-4">
+                Where taking care of your smile is made
+                easy. Our friendly team of dental experts is here to help you
+                book appointments for all your dental needs – whether it's a
+                regular check-up or special treatment. We believe in making your
+                dental journey comfortable and stress-free. With the latest
+                technology and a warm environment, we're excited to guide you
+                toward a healthier, happier smile. Let's work together to keep
+                your teeth shining and your dental care journey a breeze.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <TeamMemberCard />
+    </>
+  );
+}

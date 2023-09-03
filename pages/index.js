@@ -16,13 +16,13 @@ export default function Home() {
   return (
     <>
         <NavBar/>
-       {/* <Header/>
-      <HorizontalCard/>  */}
+       <Header/>
+      <HorizontalCard/> 
        
      
         <div className='flex w-full h-screen '>
         <LeftNavbar/>
-        <ABooking/>
+        {/* <ABooking/> */}
        
         </div>
       
