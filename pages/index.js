@@ -22,13 +22,6 @@ export default function Home() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const baseURL = process.env.NEXT_PUBLIC_URL
 
-  function loginFormHandler(event) {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const password = event.target.password.value;
-    login(username, password)
-  }
-
   async function signupFormHandler(event) {
     event.preventDefault();
     const URL = `${baseURL}/accounts/signup/`;
@@ -51,15 +44,15 @@ export default function Home() {
         console.log(responseData)
       })
       .catch(error => {
-        try{
-          if ("Passwords do not match." == error.response.data.non_field_errors[0]){
+        try {
+          if ("Passwords do not match." == error.response.data.non_field_errors[0]) {
             alert("Passwords do not match")
           }
         }
         catch (error) {
         }
-        try{
-          if ("A user with that username already exists." == error.response.data.username[0]){
+        try {
+          if ("A user with that username already exists." == error.response.data.username[0]) {
             alert("A user with that username already exists.")
           }
         }
@@ -87,6 +80,10 @@ export default function Home() {
       <Head>
         <title>eDental</title>
       </Head>
+      <NavBar />
+      <Header />
+      <HorizontalCard />
+      <Footer />
       {/* <NavBar/> */}
       {/* <LoginForm handler={loginFormHandler} /> */}
       {/* <SignupForm handler={signupFormHandler} /> */}

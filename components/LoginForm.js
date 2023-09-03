@@ -13,7 +13,7 @@ export default function LoginForm(props) {
             alt="Your Company"
           />
           <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
-            Sign in to your account
+            Log in to your account
           </h2>
         </div>
 

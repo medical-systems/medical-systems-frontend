@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import Link from 'next/link'; // Import Link from next/link
 
 const Navbar = () => {
 
   const navigation = [
-    { name: 'Home', href: '/assets/Home', current: false },
+    { name: 'Home', href: '/', current: false },
     { name: 'About us', href: "/assets/Aboutus", current: false },
     { name: 'Login', href: "/assets/Login", current: false },
     { name: 'Sign up', href: "/assets/Signup", current: false },
