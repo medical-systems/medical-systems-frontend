@@ -2,25 +2,9 @@ import { Fragment, useState } from "react";
 import disableFridays from "@/public/DateInput"
 import React from 'react';
 import Booking from "@/components/FirstSecInBooking"
+import { insuranceProviders, treatments} from "@/data"
 
-export default function BookingForm() {
-  const insuranceProviders = [
-    "Jordan Insurance Company",
-    "Arab Orient Insurance Company",
-    "Jordan French Insurance Company",
-    "Al-Nisr Al-Arabi Insurance Company",
-    "Islamic Insurance Company",
-    "United Insurance Company",
-    "Arabia Insurance Company",
-    "Middle East Insurance Company",
-    "Al-Manara Insurance Company",
-    "National Insurance Company",
-    "Arab Jordan Investment Bank Insurance Company",
-    "Al-Etihad Insurance Company",
-    "Arabia Insurance Cooperative Company",
-    "Jordan International Insurance Company",
-  ];
-
+export default function BookingForm(props) {
   const [selectedProvider, setSelectedProvider] = useState("");
   const [selectedTime, setSelectedTime] = useState('');
 
@@ -60,20 +44,20 @@ export default function BookingForm() {
 
   return (
     <div className=" max-w-[1000px] mx-auto bg-gray-100 border border-sky-950">
-      <div className="flex justify-center items-center bg-sky-950 text-white font-medium uppercase custom-font w-full h-16 ">
+      <div className="flex items-center justify-center w-full h-16 font-medium text-white uppercase bg-sky-950 custom-font ">
         <p>Book an Appointment</p>
       </div>
       <div className="w-[800px] flex items-center justify-center p-12  mx-auto">
         <div className="w-full">
-          <br></br>
-          <form action="https://formbold.com/s/FORM_ID" method="POST">
-            <div className="-mx-3 flex flex-wrap"></div>
+
+          <form onSubmit={props.handler} className="w-full">
+            <div className="flex flex-wrap -mx-3"></div>
             <div className="mb-10">
-              <Booking />
+              <Booking onDataReceived = {props.onDataReceived}/>
             </div>
 
             {/* Date input */}
-            <div className="flex flex-row gap-10 w-full">
+            <div className="flex flex-row w-full gap-10">
               <div className="min-w-[320px] sm:w-1/2">
                 <div className="mb-5">
                   <label
@@ -124,109 +108,36 @@ export default function BookingForm() {
               >
                 Treatment Options
               </label>
-              <div className="flex flex-col space-y-2 sky-950">
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="treatment"
-                    value="cleaning"
-                    className="mr-2"
-                    required
-                  />
-                  <span className="ml-2">Cleaning</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="treatment"
-                    value="filling"
-                    className="mr-2"
-                  />
-                  <span className="ml-2">Filling</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="treatment"
-                    value="extraction"
-                    className="mr-2"
-                  />
-                  <span className="ml-2">Extraction</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="treatment"
-                    value="braces"
-                    className="mr-2"
-
-                  />
-                  <span className="ml-2">Braces</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="treatment"
-                    value="whitening"
-                    className="mr-2"
-
-                  />
-                  <span className="ml-2">Whitening</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="treatment"
-                    value="other"
-                    className="mr-2"
-                  />
-                  <span className="ml-2">Other</span>
-                </label>
-              </div>
-            </div>
-
-            {/* Insurance provider selection */}
-
-            <div className="mb-5">
-              <label
-                htmlFor="insuranceProvider"
-                className="block text-base font-medium text-[#07074D] mb-3"
-              >
-                Insurance Provider
-              </label>
-              <div className="flex flex-col space-y-1">
-                <select
-                  name="insuranceProvider"
-                  id="insuranceProvider"
-                  required
-                  value={selectedProvider}
-                  onChange={handleProviderChange}
-                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                >
-                  <option value="">Select an Insurance Provider</option>
-                  {insuranceProviders.map((provider, index) => (
-                    <option key={index} value={provider}>
-                      {provider}
-                    </option>
+              <div className="grid grid-cols-4 grid-rows-3 gap-4 sky-950 ">
+                {treatments.map((treatment, index) => (
+                    <label className="flex items-center">
+                    <input
+                      type="radio"
+                      name="treatment"
+                      value={treatment}
+                      className="mr-2"
+                      required
+                    />
+                    <span className="ml-2">{treatment}</span>
+                  </label>
                   ))}
-                </select>
-
               </div>
             </div>
+
 
             {/* Comment textarea */}
 
             <div className="mb-5">
               <label
-                htmlFor="medicalHistory"
+                htmlFor="comment"
                 className="block text-base font-medium text-[#07074D] mb-3"
               >
                 Comment
               </label>
               <textarea
-                name="medicalHistory"
-                id="medicalHistory"
-                rows="4"
+                name="comment"
+                id="comment"
+                rows="3"
                 placeholder="Enter your comment here ..."
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               ></textarea>
@@ -238,7 +149,7 @@ export default function BookingForm() {
               <div className="flex justify-end mt-4">
                 {" "}
                 <button
-                  className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-sky-950 focus:outline-none focus:shadow-outline"
+                  className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-sky-950 focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
                   Book Now

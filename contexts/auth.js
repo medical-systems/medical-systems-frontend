@@ -23,7 +23,7 @@ export function AuthProvider(props) {
         const data = { username, password };
         const headers = { 'Content-Type': 'application/json' };
 
-        axios.post(URL, data, { headers })
+        await axios.post(URL, data, { headers })
             .then(response => {
                 const responseData = response.data;
                 console.log(responseData)
