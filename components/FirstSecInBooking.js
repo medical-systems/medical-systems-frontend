@@ -9,24 +9,30 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
   
-  export default function Booking() {
+  export default function Booking(props) {
     const [selected, setSelected] = useState(...people)
+    // const [doctor , secDoctor] = useState({})
+
+    const selectDoctorHandler = (event) => {
+      setSelected(event)
+      props.onDataReceived(selected)
+    }
   
     return (
         <>
-    <div className='flex flex-row-reverse items-center  w-full'>
-      <Listbox value={selected} onChange={setSelected}>
+    <div className='flex flex-row-reverse items-center w-full'>
+      <Listbox value={selected} onChange={selectDoctorHandler}>
         {({ open }) => (
           <>
           {selected && (
         
-        <div className= "w-full flex flex-col items-center  ">
+        <div className= "flex flex-col items-center w-full ">
           <img
             src={selected.avatar}
             alt={`${selected.name}'s Avatar`}
-            className=" rounded-full"
+            className="rounded-full "
           />
-          <h2 className="text-lg font-semibold text-center pt-3"> Dr. Name: {selected.name}</h2>
+          <h2 className="pt-3 text-lg font-semibold text-center"> Dr. Name: {selected.name}</h2>
 
           <h2><CollapsibleReadMore doctorInfo={selected.additionalInfo} /></h2>
         </div>
@@ -34,14 +40,14 @@ function classNames(...classes) {
       )}
           <div className="flex flex-col w-full ">
             <Listbox.Label className="mb-3 block text-base text-xl text-[#07074D]">Selecte a doctor</Listbox.Label>
-            <div className=" inset-0 flex  items-center justify-start mt-2">
+            <div className="inset-0 flex items-center justify-start mt-2 ">
               <Listbox.Button className=" relative min-w-[320px] w-[320px]  border border-[#e0e0e0] bg-white py-1.5 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md rounded-md">
                 <span className="flex items-center p-2 ">
-                  <img src={selected.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" />
-                  <span className="ml-3 block truncate">{selected.name}</span>
+                  <img src={selected.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" />
+                  <span className="block ml-3 truncate">{selected.name}</span>
                 </span>
-                <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
-                  <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
+                  <ChevronUpDownIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
                 </span>
               </Listbox.Button>
   
@@ -52,7 +58,7 @@ function classNames(...classes) {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-80 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                <Listbox.Options className="absolute z-10 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-56 w-80 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                   {people.map((person) => (
                     <Listbox.Option
                       key={person.id}
@@ -67,7 +73,7 @@ function classNames(...classes) {
                       {({ selected, active }) => (
                         <>
                           <div className="flex items-center">
-                            <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" />
+                            <img src={person.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" />
                             <span
                               className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                             >
@@ -83,7 +89,7 @@ function classNames(...classes) {
                                 'absolute inset-y-0 right-0 flex items-center pr-4'
                               )}
                             >
-                              <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                              <CheckIcon className="w-5 h-5" aria-hidden="true" />
           
                               
                             </span>

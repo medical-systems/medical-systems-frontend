@@ -47,7 +47,7 @@ export const teamMembers = [
     github: "https://github.com/maysaa1992",
     linkedIn: "https://www.linkedin.com/in/maysa-a-bataineh-174682274/",
   },
-]; 
+];
 
 export const people = [
   {
@@ -55,7 +55,7 @@ export const people = [
     name: 'Wade Cooper',
     avatar:
       'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Wade Cooper is a specialist in orthopedics...',
+    additionalInfo: 'Dr. Wade Cooper is a specialist in orthopedics...',
 
   },
   {
@@ -63,7 +63,7 @@ export const people = [
     name: 'Arlene Mccoy',
     avatar:
       'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Arlene Mccoy is a specialist in orthopedics...',
+    additionalInfo: 'Dr. Arlene Mccoy is a specialist in orthopedics...',
 
   },
   {
@@ -71,14 +71,14 @@ export const people = [
     name: 'Devon Webb',
     avatar:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Devon Webb is a specialist in orthopedics...',
+    additionalInfo: 'Dr. Devon Webb is a specialist in orthopedics...',
   },
   {
     id: 4,
     name: 'Tom Cook',
     avatar:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr. Tom Cook is a specialist in orthopedics...',
+    additionalInfo: 'Dr. Tom Cook is a specialist in orthopedics...',
 
   },
   {
@@ -86,7 +86,7 @@ export const people = [
     name: 'Tanya Fox',
     avatar:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Tanya Fox is a specialist in orthopedics...',
+    additionalInfo: 'Dr.Tanya Fox is a specialist in orthopedics...',
 
   },
   {
@@ -94,7 +94,7 @@ export const people = [
     name: 'Hellen Schmidt',
     avatar:
       'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Hellen Schmidt is a specialist in orthopedics...',
+    additionalInfo: 'Dr.Hellen Schmidt is a specialist in orthopedics...',
 
   },
   {
@@ -102,7 +102,7 @@ export const people = [
     name: 'Caroline Schultz',
     avatar:
       'https://images.unsplash.com/photo-1568409938619-12e139227838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Caroline Schultz is a specialist in orthopedics...',
+    additionalInfo: 'Dr.Caroline Schultz is a specialist in orthopedics...',
 
   },
   {
@@ -110,7 +110,7 @@ export const people = [
     name: 'Mason Heaney',
     avatar:
       'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Mason Heaney is a specialist in orthopedics...',
+    additionalInfo: 'Dr.Mason Heaney is a specialist in orthopedics...',
 
   },
   {
@@ -118,7 +118,7 @@ export const people = [
     name: 'Claudie Smitham',
     avatar:
       'https://images.unsplash.com/photo-1584486520270-19eca1efcce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Claudie Smitham is a specialist in orthopedics...',
+    additionalInfo: 'Dr.Claudie Smitham is a specialist in orthopedics...',
 
   },
   {
@@ -126,7 +126,33 @@ export const people = [
     name: 'Emil Schaefer',
     avatar:
       'https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      additionalInfo: 'Dr.Emil Schaefer is a specialist in orthopedics...',
+    additionalInfo: 'Dr.Emil Schaefer is a specialist in orthopedics...',
 
   },
+];
+
+export const insuranceProviders = [
+  "Jordan Insurance Company",
+  "Arab Orient Insurance Company",
+  "Jordan French Insurance Company",
+  "Al-Nisr Al-Arabi Insurance Company",
+  "Islamic Insurance Company",
+  "United Insurance Company",
+  "Arabia Insurance Company",
+  "Middle East Insurance Company",
+  "Al-Manara Insurance Company",
+  "National Insurance Company",
+  "Arab Jordan Investment Bank Insurance Company",
+  "Al-Etihad Insurance Company",
+  "Arabia Insurance Cooperative Company",
+  "Jordan International Insurance Company",
+];
+
+export const treatments = [
+  "Cleaning",
+  "Filling",
+  "Extraction",
+  "Braces",
+  "Whitening",
+  "Other"
 ];
