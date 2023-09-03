@@ -87,9 +87,10 @@ export default function Home() {
       <Head>
         <title>eDental</title>
       </Head>
+      {/* <NavBar/> */}
       {/* <LoginForm handler={loginFormHandler} /> */}
       {/* <SignupForm handler={signupFormHandler} /> */}
-      <BookingForm handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/>
+      {/* <BookingForm handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/> */}
 
     </>
   );
