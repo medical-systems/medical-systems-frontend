@@ -4,7 +4,7 @@ import AppointmentForm from "@/components/FirstSecInBooking"
 import TimeInput from "@/components/Footer"
 import BookingForm from "@/components/BookingForm";
 import DateTime from "@/components/DateTime";
-
+import UserProfile from "@/components/UserProfile";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       {/* <DateTime/> */}
       {/* <AppointmentForm /> */}
       {/* <TimeInput/> */}
-      <BookingForm/>
+      <UserProfile/>
     </>
   );
 }
