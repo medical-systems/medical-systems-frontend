@@ -1,10 +1,14 @@
 import React from 'react';
 import SignupForm from '@/components/SignupForm';
 const axios = require('axios');
+import { useRouter } from 'next/router';
+import { useAuth } from '@/contexts/auth';
 
 
 const Signup = () => {
     const baseURL = process.env.NEXT_PUBLIC_URL
+    const router = useRouter();
+    const { login } = useAuth()
 
     async function signupFormHandler(event) {
         event.preventDefault();
@@ -19,13 +23,15 @@ const Signup = () => {
           "last_name": event.target.lastName.value,
           "phone_num": event.target.phoneNumber.value,
           "gender": 1,
-          "insurance": 1,
+          "insurance": 2,
           "date_of_birth": event.target.dateOfBirth.value,
         }
         await axios.post(URL, userData, { headers })
           .then(response => {
             const responseData = response.data;
             console.log(responseData)
+            login(userData.username,userData.password)
+            router.push("/")
           })
           .catch(error => {
             try {
@@ -42,9 +48,8 @@ const Signup = () => {
             }
             catch (error) {
             }
-            console.log('Error', error.response.data);
+            console.error('Error', error.response.data);
           });
-        console.log(userData)
       }
 
     return (

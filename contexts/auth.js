@@ -26,17 +26,17 @@ export function AuthProvider(props) {
         await axios.post(URL, data, { headers })
             .then(response => {
                 const responseData = response.data;
-                console.log(responseData)
-
                 const decodedToken = jwt.decode(responseData.access);
-                console.log(decodedToken);
 
                 const newState = {
                     token: responseData,
                     user: {
+                        id: decodedToken.user_id,
                         username: decodedToken.username,
                         email: decodedToken.email,
-                        id: decodedToken.user_id,
+                        firstName : decodedToken.first_name,
+                        lastName : decodedToken.last_name,
+                        role : decodedToken.role,
                     },
                 };
                 setState(prevState => ({ ...prevState, ...newState }));
