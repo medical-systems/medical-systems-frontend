@@ -1,14 +1,16 @@
 import { useAuth } from "@/contexts/auth";
+import { useState } from "react";
 
 
 export default function useAppointment() {
     const { token, logout } = useAuth();
+    const [appointments, setAppointments] = useState([])
     const baseURL = process.env.NEXT_PUBLIC_URL
 
-    function config(){
+    function config() {
         return {
-            headers : { 'Content-Type': 'application/json' },
-            "Authorization":"Bearer" + token
+            headers: { 'Content-Type': 'application/json' },
+            "Authorization": "Bearer" + token
         }
     }
 
@@ -22,6 +24,7 @@ export default function useAppointment() {
             .then(response => {
                 const responseData = response.data;
                 console.log(responseData)
+                setAppointments(responseData)
             })
             .catch(error => {
                 errorHandler(error)
@@ -32,6 +35,10 @@ export default function useAppointment() {
     function errorHandler(error) {
         console.log(error)
         logout()
+    }
+
+    return {
+        response: appointments
     }
 
 }

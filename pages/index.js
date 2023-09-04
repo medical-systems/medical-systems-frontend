@@ -12,7 +12,9 @@ import LeftNavbar from "@/components/LeftNavbar"
 import Header from "@/components/Header";
 import HorizontalCard from "@/components/HorizontalCard";
 import { useState } from "react";
+import useAppointment from "@/hooks/useAppointment";
 const axios = require('axios');
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,48 +22,9 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const { user, login, token } = useAuth()
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const { response } = useAppointment()
   const baseURL = process.env.NEXT_PUBLIC_URL
-
-  async function signupFormHandler(event) {
-    event.preventDefault();
-    const URL = `${baseURL}/accounts/signup/`;
-    const headers = { 'Content-Type': 'application/json' };
-    const userData = {
-      "username": event.target.username.value,
-      "email": event.target.email.value,
-      "password": event.target.password.value,
-      "confirm_password": event.target.confirmPassword.value,
-      "first_name": event.target.firstName.value,
-      "last_name": event.target.lastName.value,
-      "phone_num": event.target.phoneNumber.value,
-      "gender": 1,
-      "insurance": 1,
-      "date_of_birth": event.target.dateOfBirth.value,
-    }
-    await axios.post(URL, userData, { headers })
-      .then(response => {
-        const responseData = response.data;
-        console.log(responseData)
-      })
-      .catch(error => {
-        try {
-          if ("Passwords do not match." == error.response.data.non_field_errors[0]) {
-            alert("Passwords do not match")
-          }
-        }
-        catch (error) {
-        }
-        try {
-          if ("A user with that username already exists." == error.response.data.username[0]) {
-            alert("A user with that username already exists.")
-          }
-        }
-        catch (error) {
-        }
-        console.log('Error', error.response.data);
-      });
-    console.log(userData)
-  }
+  console.log(user)
 
   function bookingFormHandler(event) {
     event.preventDefault();
@@ -84,11 +47,6 @@ export default function Home() {
       <Header />
       <HorizontalCard />
       <Footer />
-      {/* <NavBar/> */}
-      {/* <LoginForm handler={loginFormHandler} /> */}
-      {/* <SignupForm handler={signupFormHandler} /> */}
-      {/* <BookingForm handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/> */}
-
     </>
   );
 }

@@ -5,6 +5,9 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/', current: false },
     { name: 'About us', href: "/assets/Aboutus", current: false },
+    { name: 'Appointments', href: "/assets/Appointment", current: false },
+    { name: 'Booking', href: "/assets/Booking", current: false },
+    { name: 'profile', href: "/assets/UserProfile", current: false },
     { name: 'Login', href: "/assets/Login", current: false },
     { name: 'Sign up', href: "/assets/Signup", current: false },
   ]
@@ -13,11 +16,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="p-4 border-b border-gray-200 bg-sky-950">
-      <div className="flex items-center justify-between max-w-6xl mx-auto">
+    <nav className="bg-sky-950 border-b border-gray-200 p-4">
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img
-            className="w-auto h-8"
+            className="h-8 w-auto"
             src="logo2.png"
             alt=""
           />
@@ -29,7 +32,8 @@ const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 className={classNames(
-                  item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-sky-400 hover:text-white',
+                  item.current ? 'bg-gray-900 text-white' : item.name === 'Login' ? 'bg-gray-300 text-white hover:bg-sky-300 hover:text-white' : 'text-gray-300 hover:bg-sky-300 hover:text-white',
+                  item.name === 'Sign up' ? 'border-white' : 'text-gray-300 hover:bg-sky-300 hover:text-white',
                   'rounded-md px-3 py-2 text-sm font-medium'
                 )}
               >

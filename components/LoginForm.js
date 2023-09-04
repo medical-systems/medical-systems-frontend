@@ -64,14 +64,14 @@ export default function LoginForm(props) {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Log in
               </button>
             </div>
           </form>
 
           <p className="mt-10 text-sm text-center text-gray-500">
             New to eDental{' '}
-            <a href="#" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
+            <a href="/assets/Signup" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
               Sign up
             </a>
           </p>
