@@ -47,7 +47,7 @@ export default function BookingForm(props) {
       <div className="flex items-center justify-center w-full h-16 font-medium text-white uppercase bg-sky-950 custom-font ">
         <p>Book an Appointment</p>
       </div>
-      <div className="w-[800px] flex items-center justify-center p-12  mx-auto">
+      <div className="flex items-center justify-center p-12  mx-auto">
         <div className="w-full">
 
           <form onSubmit={props.handler} className="w-full">

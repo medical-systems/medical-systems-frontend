@@ -47,8 +47,6 @@ export default function Home() {
       <Header />
       <HorizontalCard />
       <Footer />
-      {/* <BookingForm handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/> */}
-
     </>
   );
 }

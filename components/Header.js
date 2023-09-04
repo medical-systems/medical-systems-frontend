@@ -6,7 +6,7 @@ const Header = () => {
         "Your Perfect Smile Starts Here",
         "Crafting healthy and beautiful smiles",
         "A Destination for Exceptional Dental Care",
-        ];
+    ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -26,17 +26,17 @@ const Header = () => {
                 </video>
             </div>
 
-            <div className="text-center absolute inset-0 flex  items-center justify-center mb-40">
-               <div className=" bg-slate-200 bg-opacity-5  max-w-90 max-h-90 p-9  "  >
-               <h1 className="animate-pulse  fadeInRight animate-slow text-4xl">
-                    {phrases[currentIndex]}
-                </h1>
-               </div>
-               
+            <div className="text-center absolute inset-0 flex  items-center justify-center">
+                <div className=" bg-slate-200 bg-opacity-5  max-w-90 max-h-36 p-9  "  >
+                    <h1 className="animate-pulse  fadeInRight animate-slow text-4xl">
+                        {phrases[currentIndex]}
+                    </h1>
+                </div>
+
             </div>
 
         </div>
-        
+
     );
 };
 
