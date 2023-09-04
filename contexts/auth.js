@@ -39,7 +39,6 @@ export function AuthProvider(props) {
                         role : decodedToken.role,
                     },
                 };
-                console.log(newState)
                 setState(prevState => ({ ...prevState, ...newState }));
                 
             })
@@ -55,7 +54,7 @@ export function AuthProvider(props) {
         };
         setState(prevState => ({ ...prevState, ...newState }));
     }
-    console.log(111,userState)
+    
     return (
         <AuthContext.Provider value={userState}>
             {props.children}

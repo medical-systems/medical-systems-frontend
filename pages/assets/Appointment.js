@@ -4,12 +4,18 @@ import LeftNavbar from '@/components/LeftNavbar';
 import AppointmentList from "@/components/AppointmentList"
 import Footer from '@/components/Footer';
 import useAppointment from "@/hooks/useAppointment";
+import useDoctors from '@/hooks/useDoctors';
 import { useAuth } from '@/contexts/auth';
+import { useEffect } from 'react';
 
 export default function Appointment () {
     const { user,login,token} = useAuth()
-    const { response } = useAppointment()
-    console.log(555,user)
+    const { appointmentsList } = useAppointment()
+    const { doctors } = useDoctors()
+
+    
+    console.log(111,appointmentsList)
+    console.log(222,doctors)
     
     return (
         <>

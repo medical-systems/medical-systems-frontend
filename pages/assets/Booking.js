@@ -17,7 +17,6 @@ export default function Appointment () {
           treatment: event.target.treatment.value,
           comment: event.target.comment.value,
         }
-        console.log(appointmentData)
       }
 
 
@@ -28,7 +27,7 @@ export default function Appointment () {
                 <Navbar />
                 <div className="flex space-x-0">
                     <LeftNavbar />
-                    <BookingForm className=" grid-rows-5" handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/>
+                    <BookingForm className="grid-rows-5 " handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/>
                 </div>
                 <Footer />
             </div>

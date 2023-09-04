@@ -25,7 +25,6 @@ export default function Home() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const { response } = useAppointment()
   const baseURL = process.env.NEXT_PUBLIC_URL
-  console.log(user)
 
   function bookingFormHandler(event) {
     event.preventDefault();
@@ -36,7 +35,6 @@ export default function Home() {
       treatment: event.target.treatment.value,
       comment: event.target.comment.value,
     }
-    console.log(appointmentData)
   }
 
   return (

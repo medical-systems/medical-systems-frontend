@@ -29,7 +29,6 @@ const Signup = () => {
         await axios.post(URL, userData, { headers })
           .then(response => {
             const responseData = response.data;
-            console.log(responseData)
             login(userData.username,userData.password)
             router.push("/")
           })
