@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { people } from '@/data';
+import { doctors } from '@/data';
 
 export default function AppointmentList() {
   return (
@@ -19,7 +19,7 @@ export default function AppointmentList() {
 
       {/* Appointment List */}
       <div className="container mx-auto mt-10 w-4/5">
-        {people.map((doctor) => (
+        {doctors.map((doctor) => (
           <div
             key={doctor.id}
             className="mb-4 bg-white p-2 rounded-lg shadow-md flex justify-between border w-[1200px] "

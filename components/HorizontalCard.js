@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardHeader, CardBody, Typography } from "@material-tailwind/react";
 
+// Define an array of people data
 const people = [
   {
     id: 1,
     name: 'Tooth extraction',
     avatar:
       'https://www.aspiredental.ca/wp-content/uploads/2023/03/how-do-your-gums-heal-after-a-tooth-extraction-scaled.jpg',
-    additionalInfo: 'You will get a local anesthetic to numb the area around the tooth so you do not feel pain.Your dentist may loosen the tooth in the gum using a tooth removal instrument called an elevator. Your dentist will then place forceps around the tooth and pull the tooth out from the gum',
-
+    additionalInfo: 'You will get a local anesthetic to numb the area around the tooth so you do not feel pain. Your dentist may loosen the tooth in the gum using a tooth removal instrument called an elevator. Your dentist will then place forceps around the tooth and pull the tooth out from the gum.',
   },
-
   {
     id: 6,
     name: 'Orthodontics',
@@ -54,36 +53,48 @@ const people = [
 ]
 
 export default function HorizontalCard() {
+  // Initialize state to keep track of the current person index
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Use useEffect to change the current person index at a set interval
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % people.length);
     }, 3500); // Change every 3.5 seconds
 
+    // Clear the interval when the component unmounts
     return () => clearInterval(interval);
   }, []);
 
+  // Get the current person's data
+  const currentPerson = people[currentIndex];
+
   return (
-    <div className=" w-full flex justify-center items-center h-screen bg-gray-100">
+    <div className="w-full flex justify-center items-center h-screen bg-gray-100">
+      {/* Card component with styling */}
       <Card className="animate-pulse w-full max-w-3xl flex-row shadow-lg">
         <CardHeader
           shadow={false}
           floated={false}
           className="m-0 w-2/5 shrink-0 rounded-r-none"
         >
+          {/* Display the person's avatar */}
           <img
-            src={people[currentIndex]?.avatar}
-            alt="" height={500} width={500}
+            src={currentPerson?.avatar}
+            alt={currentPerson?.name}
+            height={500}
+            width={500}
             className="h-full w-full object-cover"
           />
         </CardHeader>
         <CardBody>
+          {/* Display the person's name */}
           <Typography variant="h2" color="gray" className="animate-pulse mb-8 font-normal">
-            {people[currentIndex]?.name}
+            {currentPerson?.name}
           </Typography>
+          {/* Display additional information about the person */}
           <Typography color="gray" className="animate-pulse mb-8 font-normal">
-            {people[currentIndex]?.additionalInfo}
+            {currentPerson?.additionalInfo}
           </Typography>
         </CardBody>
       </Card>

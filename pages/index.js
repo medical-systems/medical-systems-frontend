@@ -13,6 +13,7 @@ import Header from "@/components/Header";
 import HorizontalCard from "@/components/HorizontalCard";
 import { useState } from "react";
 import useAppointment from "@/hooks/useAppointment";
+import ListOfDoctors from "@/components/ListOfDoctors";
 const axios = require('axios');
 
 
@@ -43,9 +44,12 @@ export default function Home() {
       <Head>
         <title>eDental</title>
       </Head>
+
       <NavBar />
       <Header />
-      <HorizontalCard />
+      {/* <HorizontalCard /> */}
+
+      <ListOfDoctors/>
       <Footer />
     </>
   );

@@ -49,8 +49,8 @@ function Footer() {
             </div>
             <div className="p-5">
               
-              <p className="flex flex-col justify-center items-center text-center  p-5bg-blue-400 text-white">
-                © 2023 All rights reserved | Build with ❤ by{" "}
+              <p className="flex flex-col justify-center items-center text-center  p-5bg-sky-400 text-white">
+                © 2023 All rights reserved 
                 <span className="hover:text-blue-600 font-semibold cursor-pointer">
                 eDental Clinic Team {" "}
                 </span>
