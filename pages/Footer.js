@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       
-      <footer className=" bottom-0 left-0 w-full bg-sky-950 " >
+      <footer className="  w-full bg-sky-950 " >
         <div className="mx-auto w-full max-w-screen-xl">
           <div className="md:flex md:justify-between">
             <div className="p-5 ">

@@ -9,20 +9,16 @@ import Navbar from "@/components/NavBar";
 import LeftNavbar from "@/components/LeftNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
-    <div>
-
-      {/* <Aboutus /> */}
-      {/* <ABooking/> */}
-       <Navbar />
-       {/* <LeftNavbar/> */}
-
-      <AppointmentList/>
-
+    <div className="w-full max-h-[2000px] ">
+      {/* Your home screen components */}
+      <Navbar />
+      <div className="flex">
+        <LeftNavbar />
+        <AppointmentList />
+      </div>
       <Footer />
-      
     </div>
   );
 }
