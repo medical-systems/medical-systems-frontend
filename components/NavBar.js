@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
 
@@ -16,11 +17,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-sky-950 border-b border-gray-200 p-4">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+    <nav className="p-4 border-b border-gray-200 bg-sky-950">
+      <div className="flex items-center justify-between max-w-6xl mx-auto">
         <div className="flex items-center">
           <img
-            className="h-8 w-auto"
+            className="w-auto h-8"
             src="logo2.png"
             alt=""
           />
@@ -28,7 +29,7 @@ const Navbar = () => {
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className={classNames(
@@ -38,7 +39,7 @@ const Navbar = () => {
                 )}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

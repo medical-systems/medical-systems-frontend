@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { insuranceProviders } from "@/data"
+import Link from 'next/link';
 
 
 export default function SignupForm(props) {
@@ -208,9 +209,9 @@ export default function SignupForm(props) {
 
           <p className="mt-10 text-sm text-center text-gray-500">
             have an account in eDental{' '}
-            <a href="/assets/Login" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
+            <Link href="/assets/Login" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
               Log in
-            </a>
+            </Link>
           </p>
         </div>
       </div>

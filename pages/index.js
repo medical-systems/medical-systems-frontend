@@ -17,6 +17,7 @@ const axios = require('axios');
 
 
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {

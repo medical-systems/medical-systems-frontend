@@ -1,11 +1,12 @@
 import { useAuth } from "@/contexts/auth";
 import { useState } from "react";
+import useSWR from 'swr'
 
 
 export default function useAppointment() {
-    const { token, logout } = useAuth();
-    const [appointments, setAppointments] = useState([])
     const baseURL = process.env.NEXT_PUBLIC_URL
+    const { token, logout } = useAuth();
+    const { appointments, error} = useSWR(`${baseURL}/api/v1/appointments/`,fetchAppointments)
 
     function config() {
         return {
@@ -24,7 +25,7 @@ export default function useAppointment() {
             .then(response => {
                 const responseData = response.data;
                 console.log(responseData)
-                setAppointments(responseData)
+                return responseData
             })
             .catch(error => {
                 errorHandler(error)
