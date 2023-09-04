@@ -26,14 +26,15 @@ const Navbar = () => {
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={classNames(
-                  item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-sky-400 hover:text-white',
-                  'rounded-md px-3 py-2 text-sm font-medium'
-                )}
-              >
+           <a
+           key={item.name}
+           href={item.href}
+           className={classNames(
+             item.current ? 'bg-gray-900 text-white' : item.name === 'Login' ? 'bg-gray-300 text-white hover:bg-sky-300 hover:text-white' : 'text-gray-300 hover:bg-sky-300 hover:text-white',
+             item.name === 'Sign up' ? 'border-white' : 'text-gray-300 hover:bg-sky-300 hover:text-white',
+             'rounded-md px-3 py-2 text-sm font-medium'
+           )}
+         >
                 {item.name}
               </a>
             ))}
