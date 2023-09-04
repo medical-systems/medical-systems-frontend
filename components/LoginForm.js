@@ -72,9 +72,9 @@ export default function LoginForm(props) {
 
           <p className="mt-10 text-sm text-center text-gray-500">
             New to eDental{' '}
-            <a href="/assets/Signup" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
+            <Link href="/assets/Signup" className="font-semibold leading-6 text-blue-500 hover:text-indigo-500">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
