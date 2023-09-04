@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 
 
-const AboutuS = () => {
+const AboutUs = () => {
     return (
         <>
             <NavBar/>
@@ -16,4 +16,4 @@ const AboutuS = () => {
     );
 }
 
-export default AboutuS;
+export default AboutUs;

@@ -11,7 +11,7 @@ export function useAuth() {
 }
 
 export function AuthProvider(props) {
-    const [state, setState] = useState({
+    const [userState, setState] = useState({
         token: null,
         user: null,
         login,
@@ -40,6 +40,7 @@ export function AuthProvider(props) {
                     },
                 };
                 setState(prevState => ({ ...prevState, ...newState }));
+                
             })
             .catch(error => {
                 console.error('Error', error);
@@ -53,8 +54,9 @@ export function AuthProvider(props) {
         };
         setState(prevState => ({ ...prevState, ...newState }));
     }
+    
     return (
-        <AuthContext.Provider value={state}>
+        <AuthContext.Provider value={userState}>
             {props.children}
         </AuthContext.Provider>
     )

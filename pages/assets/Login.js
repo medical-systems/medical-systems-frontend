@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/auth";
 import { useRouter } from 'next/router';
 
 const Login = () => {
-    const { login } = useAuth()
+    const {user, login } = useAuth()
     const router = useRouter();
 
     function loginFormHandler(event) {
