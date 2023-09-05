@@ -4,6 +4,8 @@ import LeftNavbar from '@/components/LeftNavbar';
 import BookingForm from '@/components/BookingForm';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
+import useDoctors from '@/hooks/useDoctors';
+import useInfo from "@/hooks/useInfo";
 
 export default function Appointment () {
     const [selectedDoctor, setSelectedDoctor] = useState(null);

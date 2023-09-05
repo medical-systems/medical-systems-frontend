@@ -27,11 +27,11 @@ function classNames(...classes) {
           {selected && (
         
         <div className= "flex flex-col items-center w-full ">
-          <img
+          {/* <img
             src={selected.avatar}
             alt={`${selected.name}'s Avatar`}
             className="rounded-full "
-          />
+          /> */}
           <h2 className="pt-3 text-lg font-semibold text-center"> Dr. Name: {selected.name}</h2>
 
           <h2><CollapsibleReadMore doctorInfo={selected.additionalInfo} /></h2>
@@ -43,7 +43,7 @@ function classNames(...classes) {
             <div className="inset-0 flex items-center justify-start mt-2 ">
               <Listbox.Button className=" relative min-w-[320px] w-[320px]  border border-[#e0e0e0] bg-white py-1.5 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md rounded-md">
                 <span className="flex items-center p-2 ">
-                  <img src={selected.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" />
+                  {/* <img src={selected.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" /> */}
                   <span className="block ml-3 truncate">{selected.name}</span>
                 </span>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
@@ -73,7 +73,7 @@ function classNames(...classes) {
                       {({ selected, active }) => (
                         <>
                           <div className="flex items-center">
-                            <img src={person.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" />
+                            {/* <img src={person.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" /> */}
                             <span
                               className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                             >

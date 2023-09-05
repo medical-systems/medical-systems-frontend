@@ -14,6 +14,8 @@ import HorizontalCard from "@/components/HorizontalCard";
 import { useState } from "react";
 import useAppointment from "@/hooks/useAppointment";
 const axios = require('axios');
+import useDoctors from '@/hooks/useDoctors';
+import useInfo from "@/hooks/useInfo";
 
 
 
@@ -24,7 +26,11 @@ export default function Home() {
   const { user, login, token } = useAuth()
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const { response } = useAppointment()
+  const { doctors } = useDoctors()
+  const { info } = useInfo()
   const baseURL = process.env.NEXT_PUBLIC_URL
+
+  console.log(555,info)
 
   function bookingFormHandler(event) {
     event.preventDefault();
