@@ -17,7 +17,6 @@ export default function Appointment() {
     useEffect(()=>{
         fetchPatients()
     },[])
-    
     async function fetchPatients() {
         let url = `${baseURL}/accounts/patients/`
         if (!token) {
@@ -31,7 +30,6 @@ export default function Appointment() {
                 }
               });
             const responseData = response.data;
-            console.log("patient", responseData)
             setPatient(responseData);
         } catch (error) {
             console.log(error);
@@ -39,20 +37,18 @@ export default function Appointment() {
     }
     
     const appointments = []
-    console.log("youyo", appointmentsList)
-    console.log("user", user)
     if (user.role == "Patient") {
         Object.keys(appointmentsList).forEach((appointmentKey) => {
             Object.keys(doctors).forEach((doctorKey) => {
-                if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"]) {
+                if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"] && appointmentsList[appointmentKey]["Appointment_status"]==1) {
                     let appointment = {
+                        "id":appointmentsList[appointmentKey]["id"],
                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
                         "appointmentTime": appointmentsList[appointmentKey]["Appointment_time"],
                         "Payment": appointmentsList[appointmentKey]["payment"],
                         "name": doctors[doctorKey]["first_name"] + " " + doctors[doctorKey]["last_name"],
                         "email": doctors[doctorKey]["email"],
                     }
-                    console.log(333, appointment)
                     appointments.push(appointment)
                 }
             });
@@ -64,13 +60,13 @@ export default function Appointment() {
                 
                 if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"]) {
                     let appointment = {
+                        "id":appointmentsList[appointmentKey]["id"],
                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
                         "appointmentTime": appointmentsList[appointmentKey]["Appointment_time"],
                         "Payment": appointmentsList[appointmentKey]["payment"],
                         "name": patient[patientKey]["first_name"] + " " + patient[patientKey]["last_name"],
                         "email": patient[patientKey]["email"],
                     }
-                    console.log(333, appointment)
                     appointments.push(appointment)
                 }
             });
@@ -87,14 +83,8 @@ export default function Appointment() {
             "treatment": parseInt(event.target.treatment.value),
             "notes": event.target.comment.value,
         }
-        console.log(selectedDoctor)
         createAppointments(appointmentData)
     }
-
-    console.log("user", user)
-    console.log(444, appointments)
-    console.log(111, appointmentsList)
-    console.log(222, doctors)
 
     return (
         <>

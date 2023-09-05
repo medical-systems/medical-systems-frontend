@@ -9,9 +9,6 @@ const Signup = () => {
     const baseURL = process.env.NEXT_PUBLIC_URL
     const router = useRouter();
     const { login } = useAuth()
-    useEffect(()=>{
-
-  },[])
 
     async function signupFormHandler(event) {
         event.preventDefault();

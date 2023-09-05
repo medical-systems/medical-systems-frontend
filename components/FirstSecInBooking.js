@@ -17,7 +17,6 @@ function classNames(...classes) {
     const selectDoctorHandler = (event) => {
       setSelected(event)
       props.onDataReceived(event.id)
-      console.log("event",event.id)
     }
   
     return (

@@ -27,9 +27,6 @@ export default function Appointment() {
     Object.keys(info["treatments"]).forEach((treatmentKey) => {
         treatments.push(info["treatments"][treatmentKey])
     });
-    console.log(5555, listOfDoctors)
-    console.log(101010, treatments)
-    console.log("user",user)
 
 
     function bookingFormHandler(event) {
@@ -41,7 +38,6 @@ export default function Appointment() {
             "treatment": parseInt(event.target.treatment.value),
             "notes": event.target.comment.value,
         }
-        console.log(123123123,appointmentData["doctor"],selectedDoctor)
         createAppointments(appointmentData)
         router.push("/assets/Appointment")
     }
