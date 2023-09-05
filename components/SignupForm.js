@@ -70,7 +70,7 @@ export default function SignupForm(props) {
                   autoComplete="current-password"
                   required
                   placeholder="Enter your password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:text-sm sm:leading-6 p-5"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:text-sm sm:leading-6 p-5"
                 />
               </div>
 
@@ -91,7 +91,7 @@ export default function SignupForm(props) {
                   autoComplete="confirmPassword"
                   required
                   placeholder="confirm your Password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:text-sm sm:leading-6 p-5"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:text-sm sm:leading-6 p-5"
                 />
               </div>
 
@@ -157,7 +157,7 @@ export default function SignupForm(props) {
 
                 <div className="mt-2">
                   <select id="insurance" name="insurance" autocomplete="insurance" class="block w-full rounded-md border-0 py-1.5  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-950 sm:max-w-xs sm:text-sm sm:leading-6">
-                    {insuranceProviders.map((provider, index) => (
+                    {props.insuranceProviders.map((provider, index) => (
                       <option key={index} value={provider}>
                         {provider}
                       </option>

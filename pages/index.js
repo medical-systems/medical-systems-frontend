@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
       <NavBar/>
       {/* <Testnav/> */}
-      {/* <Header /> */}
+      <Header />
       <ListOfDoctors/>
       <HorizontalCard />
       <Footer />
