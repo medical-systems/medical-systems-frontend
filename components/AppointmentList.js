@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { people } from '@/data';
 
-export default function AppointmentList() {
+export default function AppointmentList(props) {
   
   return (
     <div>
@@ -20,27 +20,30 @@ export default function AppointmentList() {
 
       {/* Appointment List */}
       <div className="container w-4/5 mx-auto mt-10">
-        {people.map((doctor) => (
+        {props.myList.map((appointments) => (
           <div
-            key={doctor.id}
+            key={appointments.id}
             className="mb-4 bg-white p-2 rounded-lg shadow-md flex justify-between border w-[1200px] "
           >
             <div className="flex items-center gap-4">
-              <div className="relative w-14 h-14">
+              {/* <div className="relative w-14 h-14">
                 <img
                   className="rounded-full"
-                  src={doctor.avatar}
-                  alt={doctor.name}
+                  src={appointments.avatar}
+                  alt={appointments.name}
                   layout="fill"
                   objectFit="cover"
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col">
-                <p className="text-lg font-semibold">{doctor.name}</p>
-                <p className="text-gray-600">{doctor.specialized}</p>
+                <p className="text-lg font-semibold">{appointments.doctorName}</p>
+                <p className="text-gray-600">{appointments.email}</p>
+                <div className='flex'>
                 <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">
-                  Date of Appointment
-                </p>
+                  {appointments.appointmentDate}</p>
+                  <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">
+                  {appointments.appointmentTime}</p>
+                </div>
               </div>
             </div>
             <div className="flex items-start gap-2">

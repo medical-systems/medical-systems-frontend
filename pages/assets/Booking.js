@@ -1,33 +1,63 @@
 import React from 'react';
 import Navbar from '@/components/NavBar';
-import LeftNavbar from '@/components/LeftNavbar';
 import BookingForm from '@/components/BookingForm';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
+import useDoctors from '@/hooks/useDoctors';
+import useInfo from "@/hooks/useInfo";
+import { useAuth } from "@/contexts/auth";
+import useAppointment from "@/hooks/useAppointment";
+import { useRouter } from 'next/router';
 
-export default function Appointment () {
-    const [selectedDoctor, setSelectedDoctor] = useState(null);
+
+export default function Appointment() {
+    
+    const { doctors } = useDoctors()
+    const { info } = useInfo()
+    const { user, login, token } = useAuth()
+    const { createAppointments } = useAppointment()
+    const router = useRouter();
+    const listOfDoctors = []
+    const treatments = []
+
+    Object.keys(doctors).forEach((doctorKey) => {
+        listOfDoctors.push(doctors[doctorKey])
+    });
+    const [selectedDoctor, setSelectedDoctor] = useState(...listOfDoctors);
+    Object.keys(info["treatments"]).forEach((treatmentKey) => {
+        treatments.push(info["treatments"][treatmentKey])
+    });
+    console.log(5555, listOfDoctors)
+    console.log(101010, treatments)
+    console.log("user",user)
+
 
     function bookingFormHandler(event) {
         event.preventDefault();
-        const appointmentData = {
-          doctor: selectedDoctor,
-          appointmentDate: event.target.date.value,
-          appointmenttime: event.target.time.value,
-          treatment: event.target.treatment.value,
-          comment: event.target.comment.value,
+        let notes = " ";
+        if (event.target.comment.value != null){
+            notes =event.target.comment.value
         }
-      }
+        const appointmentData = {
+            "doctor": selectedDoctor.id,
+            "Appointment_date": event.target.date.value,
+            "Appointment_time": event.target.time.value,
+            "treatment": parseInt(event.target.treatment.value),
+            "notes": notes,
+        }
+        console.log("doctor",selectedDoctor)
+        createAppointments(appointmentData)
+        router.push("/assets/Appointment")
+    }
 
 
     return (
         <>
-            <div className="w-full max-h-[2000px] ">
+            <div className="w-full max-h-[2000px] min-h-screen">
                 {/* Your home screen components */}
                 <Navbar />
                 <div className="flex space-x-0">
-                    <LeftNavbar />
-                    <BookingForm className="grid-rows-5 " handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/>
+                    <BookingForm className="grid-rows-5 " handler={bookingFormHandler} onDataReceived={setSelectedDoctor} listOfDoctors ={ listOfDoctors } treatments={treatments}/>
                 </div>
                 <Footer />
             </div>
