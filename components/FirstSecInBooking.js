@@ -2,14 +2,14 @@ import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import CollapsibleReadMore from "@/components/CollapsibleReadMore";
-import { people } from "@/data";
+import { doctors } from "@/data";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Booking(props) {
-  const [selected, setSelected] = useState(people[0]);
+  const [selected, setSelected] = useState(doctors[0]);
   // const [doctor , secDoctor] = useState({})
 
   const selectDoctorHandler = (event) => {
@@ -72,7 +72,7 @@ export default function Booking(props) {
                     leaveTo="opacity-0"
                   >
                     <Listbox.Options className="absolute z-10 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-56 w-80 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {people.map((person) => (
+                      {doctors.map((person) => (
                         <Listbox.Option
                           key={person.id}
                           className={({ active }) =>

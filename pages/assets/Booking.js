@@ -24,10 +24,10 @@ export default function Appointment () {
     return (
         <>
             <div className="w-full max-h-[2000px] ">
-                {/* Your home screen components */}
+                {/*  home components */}
                 <Navbar />
                 <div className="flex space-x-0">
-                    <LeftNavbar />
+                    {/* <LeftNavbar /> */}
                     <BookingForm className=" grid-rows-5" handler={bookingFormHandler} onDataReceived = {setSelectedDoctor}/>
                 </div>
                 <Footer />

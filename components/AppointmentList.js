@@ -4,9 +4,9 @@ import { doctors } from '@/data';
 export default function AppointmentList() {
   return (
     <div>
-      <div className="bg-gray-100 text-white py-4 ">
+      <div className="bg-gray-100 text-white py-6 ">
         <div className="container mx-20 flex justify-between items-center px-4">
-          <div className="space-x-6 ">
+          <div className="space-x-6 ml-10 ">
             <button className="bg-white text-blue-500 py-2 px-4 rounded-full hover:bg-blue-100 hover:text-blue-700">
               Upcoming
             </button>

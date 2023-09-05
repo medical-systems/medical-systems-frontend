@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
 
@@ -28,7 +29,7 @@ const Navbar = () => {
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className={classNames(
@@ -38,7 +39,7 @@ const Navbar = () => {
                 )}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
