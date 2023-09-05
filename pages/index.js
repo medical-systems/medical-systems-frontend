@@ -5,6 +5,7 @@ import TimeInput from "@/components/Footer"
 import BookingForm from "@/components/BookingForm";
 import DateTime from "@/components/DateTime";
 import UserProfile from "@/components/UserProfile";
+import UpdateUserProfile from "@/components/UpdateUserProfile";
 
 export default function Home() {
   return (
@@ -14,7 +15,8 @@ export default function Home() {
       {/* <DateTime/> */}
       {/* <AppointmentForm /> */}
       {/* <TimeInput/> */}
-      <UserProfile/>
+      {/* <UserProfile/> */}
+      <UpdateUserProfile/>
     </>
   );
 }
