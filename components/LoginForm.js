@@ -40,7 +40,7 @@ export default function LoginForm(props) {
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                   Password
                 </label>
-                {<div className="text-sm">
+                <div className="text-sm">
                   <a href="#" className="font-semibold text-blue-600 hover:text-indigo-500">
                     Forgot password?
                   </a>

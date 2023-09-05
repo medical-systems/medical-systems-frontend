@@ -10,9 +10,11 @@ import Head from "next/head";
 import NavBar from "@/components/NavBar"
 import LeftNavbar from "@/components/LeftNavbar"
 import Header from "@/components/Header";
+import Testnav from "@/components/Testnav"
 import HorizontalCard from "@/components/HorizontalCard";
 import { useState } from "react";
 import useAppointment from "@/hooks/useAppointment";
+
 const axios = require('axios');
 
 
@@ -24,7 +26,6 @@ export default function Home() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const { response } = useAppointment()
   const baseURL = process.env.NEXT_PUBLIC_URL
-  console.log(user)
 
   function bookingFormHandler(event) {
     event.preventDefault();
@@ -43,7 +44,8 @@ export default function Home() {
       <Head>
         <title>eDental</title>
       </Head>
-      <NavBar />
+      <NavBar/>
+      {/* <Testnav/> */}
       <Header />
       <HorizontalCard />
       <Footer />
