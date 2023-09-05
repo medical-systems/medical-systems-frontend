@@ -1,80 +1,79 @@
 import { FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 import React from "react";
 import Link from "next/link";
+
 function Footer() {
   return (
     <>
-      
-      <footer className="bottom-0 left-0 w-full bg-gray-800 " >
-        <div className="w-full max-w-screen-xl mx-auto">
-          <div className="md:flex md:justify-between">
-            <div className="p-5 ">
-              <ul>
-                <div className="flex flex-col items-center pb-5">
-                  <p className="pb-4 text-2xl font-bold text-sky-100">
-                    Contact us:
-                  </p>
-                  <div className="flex gap-6">
-                    <Link
-                      href="https://www.instagram.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaInstagram className="text-2xl text-white cursor-pointer hover:text-red-400" />
-                    </Link>
-                    <Link
-                      href="https://twitter.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaTwitter className="text-2xl text-white cursor-pointer hover:text-blue-600" />
-                    </Link>
-                    <Link
-                      href="https://www.linkedin.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaLinkedin className="text-2xl text-white cursor-pointer hover:text-blue-600" />
-                    </Link>
-                    <Link
-                      href="https://www.facebook.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FaFacebook className="text-2xl text-white cursor-pointer hover:text-blue-600" />
-                    </Link>
-                  </div>
-                </div>
-              </ul>
-            </div>
-            <div className="p-5">
-              
-              <p className="flex flex-col items-center justify-center text-center text-white p-5bg-blue-400">
-                © 2023 All rights reserved | Build with ❤ by{" "}
-                <span className="font-semibold cursor-pointer hover:text-blue-600">
-                eDental Clinic Team {" "}
-                </span>
-              </p>
+      <footer className="flex flex-col items-center text-white bg-sky-950">
+        <div className="container px-6 pt-6">
+          <div className="flex justify-center mb-6">
+            <div className="flex items-center justify-center m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full h-9 w-9 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-0">
+              <a
+                href="https://www.linkedin.com/"
+                type="button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-xl" />
+              </a>
             </div>
 
-            <div className="p-5">
-                <p className="pb-4 text-2xl font-bold text-sky-100">
-                  Support:
-                </p>
-              <ul className="flex flex-row " >
-                <li className="pb-2 m-1 font-semibold text-white cursor-pointer text-md hover:text-blue-600">
-                  LTUC
-                </li>
-             
-                <li className="pb-2 m-1 font-semibold text-white cursor-pointer text-md hover:text-blue-600">
-                  ASAC
-                </li>
-              </ul>
+            <div className="flex items-center justify-center m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full h-9 w-9 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-0">
+              <a
+                href="https://twitter.com/"
+                type="button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter className="text-xl" />
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full h-9 w-9 hover:bg-red-400 hover:text-white focus:outline-none focus:ring-0">
+              <a
+                href="https://www.instagram.com/"
+                type="button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-xl" />
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full h-9 w-9 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-0">
+              <a
+                href="https://www.facebook.com/"
+                type="button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook className="text-xl" />
+              </a>
             </div>
           </div>
         </div>
+        {/* <div className="w-full p-4 text-center" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+          <p className="text-white">Support:</p>
+          <ul className="flex flex-row justify-center">
+            <li className="mx-2 font-semibold text-white cursor-pointer text-md hover:text-blue-600">
+              LTUC
+            </li>
+            <li className="mx-2 font-semibold text-white cursor-pointer text-md hover:text-blue-600">
+              ASAC
+            </li>
+          </ul>
+        </div> */}
 
-       
+        <div
+          className="w-full p-4 text-center"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        >
+          © 2023 All rights reserved
+          <a className="text-white" href="https://tailwind-elements.com/">
+            {"   "} || eDental Clinic{" "}
+          </a>
+        </div>
       </footer>
     </>
   );

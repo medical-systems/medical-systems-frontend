@@ -38,7 +38,7 @@ export default function AppointmentList(props) {
               <div className="flex flex-col">
                 <p className="text-lg font-semibold">{appointments.doctorName}</p>
                 <p className="text-gray-600">{appointments.email}</p>
-                <div className='flex space-x-3'>
+                <div className='flex'>
                 <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">
                   {appointments.appointmentDate}</p>
                   <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">

@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import CollapsibleReadMore from '@/components/CollapsibleReadMore';
-import {people} from '@/data'
+
 
 
 function classNames(...classes) {
@@ -10,10 +10,12 @@ function classNames(...classes) {
   }
   
   export default function Booking(props) {
+    let people = props.people
     const [selected, setSelected] = useState(...people)
     // const [doctor , secDoctor] = useState({})
 
     const selectDoctorHandler = (event) => {
+      console.log("event",event)
       setSelected(event)
       props.onDataReceived(selected)
     }
@@ -32,9 +34,9 @@ function classNames(...classes) {
             alt={`${selected.name}'s Avatar`}
             className="rounded-full "
           /> */}
-          <h2 className="pt-3 text-lg font-semibold text-center"> Dr. Name: {selected.name}</h2>
+          <h2 className="pt-3 text-lg font-semibold text-center"> Dr. Name: {selected.first_name} {selected.last_name}</h2>
 
-          <h2><CollapsibleReadMore doctorInfo={selected.additionalInfo} /></h2>
+          <h2><CollapsibleReadMore doctorInfo={selected.about_doctor} /></h2>
         </div>
       
       )}
@@ -44,7 +46,7 @@ function classNames(...classes) {
               <Listbox.Button className=" relative min-w-[320px] w-[320px]  border border-[#e0e0e0] bg-white py-1.5 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md rounded-md">
                 <span className="flex items-center p-2 ">
                   {/* <img src={selected.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" /> */}
-                  <span className="block ml-3 truncate">{selected.name}</span>
+                  <span className="block ml-3 truncate">{selected.first_name} {selected.last_name}</span>
                 </span>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
                   <ChevronUpDownIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
@@ -77,7 +79,7 @@ function classNames(...classes) {
                             <span
                               className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                             >
-                              {person.name}
+                              {person.first_name} {person.last_name}
                             </span>
                           
                           </div>

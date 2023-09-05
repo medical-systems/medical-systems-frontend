@@ -2,11 +2,10 @@ import { Fragment, useState } from "react";
 import disableFridays from "@/public/DateInput"
 import React from 'react';
 import Booking from "@/components/FirstSecInBooking"
-import { insuranceProviders, treatments} from "@/data"
 
 export default function BookingForm(props) {
   const [selectedProvider, setSelectedProvider] = useState("");
-  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedTime, setSelectedTime] = useState('08:00');
 
   const handleProviderChange = (event) => {
     setSelectedProvider(event.target.value);
@@ -20,7 +19,6 @@ export default function BookingForm(props) {
       setSelectedTime(inputTime);
     } else {
       alert('Please choose a time during working hours (8:00 AM : 17:00 PM)');
-      setSelectedTime('');
     }
   };
   const currentDate = new Date();
@@ -47,13 +45,13 @@ export default function BookingForm(props) {
       <div className="flex items-center justify-center w-full h-16 font-medium text-white uppercase bg-sky-950 custom-font ">
         <p>Book an Appointment</p>
       </div>
-      <div className="flex items-center justify-center p-12  mx-auto">
+      <div className="flex items-center justify-center p-12 mx-auto">
         <div className="w-full">
 
           <form onSubmit={props.handler} className="w-full">
             <div className="flex flex-wrap -mx-3"></div>
             <div className="mb-10">
-              <Booking onDataReceived = {props.onDataReceived}/>
+              <Booking onDataReceived={props.onDataReceived} people={props.listOfDoctors} />
             </div>
 
             {/* Date input */}
@@ -93,7 +91,7 @@ export default function BookingForm(props) {
                     required
                     className="w-[320px] rounded-md border border-[#e0e0e0] bg-white py-3 px-5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     value={selectedTime}
-                    onChange={handleTimeChange}
+                  onChange={handleTimeChange}
                   />
                 </div>
               </div>
@@ -109,18 +107,18 @@ export default function BookingForm(props) {
                 Treatment Options
               </label>
               <div className="grid grid-cols-4 grid-rows-3 gap-4 sky-950 ">
-                {treatments.map((treatment, index) => (
-                    <label className="flex items-center">
+                {props.treatments.map((treatment, index) => (
+                  <label className="flex items-center">
                     <input
                       type="radio"
                       name="treatment"
-                      value={treatment}
+                      value={treatment.id}
                       className="mr-2"
                       required
                     />
-                    <span className="ml-2">{treatment}</span>
+                    <span className="ml-2">{treatment.treatment_name}</span>
                   </label>
-                  ))}
+                ))}
               </div>
             </div>
 

@@ -32,12 +32,29 @@ export default function useAppointment() {
         }
     }
 
+    async function createAppointments(AppointmentsData) {
+        let url = `${baseURL}/api/v1/appointments/`
+        if (!token) {
+            return null
+        }
+        try {
+            axios.POST
+            const response = await axios.post(url,JSON.stringify(AppointmentsData), config());
+            const responseData = response.data;
+            console.log(202020, responseData)
+            return responseData;
+        } catch (error) {
+            errorHandler(error);
+        }
+    }
+
     function errorHandler(error) {
         console.log(error);
         logout();
     }
 
     return {
-        appointmentsList: appointments
+        appointmentsList: appointments,
+        createAppointments,
     }
 }

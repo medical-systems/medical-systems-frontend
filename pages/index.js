@@ -16,6 +16,7 @@ import useAppointment from "@/hooks/useAppointment";
 const axios = require('axios');
 import useDoctors from '@/hooks/useDoctors';
 import useInfo from "@/hooks/useInfo";
+import ListOfDoctors from "@/components/ListOfDoctors"
 
 
 
@@ -29,8 +30,6 @@ export default function Home() {
   const { doctors } = useDoctors()
   const { info } = useInfo()
   const baseURL = process.env.NEXT_PUBLIC_URL
-
-  console.log(555,info)
 
   function bookingFormHandler(event) {
     event.preventDefault();
@@ -48,8 +47,10 @@ export default function Home() {
       <Head>
         <title>eDental</title>
       </Head>
-      <NavBar />
+      <NavBar/>
+      {/* <Testnav/> */}
       <Header />
+      <ListOfDoctors/>
       <HorizontalCard />
       <Footer />
     </>
