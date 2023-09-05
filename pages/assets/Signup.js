@@ -3,12 +3,15 @@ import SignupForm from '@/components/SignupForm';
 const axios = require('axios');
 import { useRouter } from 'next/router';
 import { useAuth } from '@/contexts/auth';
-
+import { useEffect, useState } from 'react';
 
 const Signup = () => {
     const baseURL = process.env.NEXT_PUBLIC_URL
     const router = useRouter();
     const { login } = useAuth()
+    useEffect(()=>{
+
+  },[])
 
     async function signupFormHandler(event) {
         event.preventDefault();

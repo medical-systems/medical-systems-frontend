@@ -17,6 +17,7 @@ export default function Appointment() {
     useEffect(()=>{
         fetchPatients()
     },[])
+    
     async function fetchPatients() {
         let url = `${baseURL}/accounts/patients/`
         if (!token) {
@@ -36,8 +37,6 @@ export default function Appointment() {
             console.log(error);
         }
     }
-    
-
     
     const appointments = []
     console.log("youyo", appointmentsList)

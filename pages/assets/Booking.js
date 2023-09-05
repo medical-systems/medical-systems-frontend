@@ -43,7 +43,7 @@ export default function Appointment() {
         }
         console.log(123123123,appointmentData["doctor"],selectedDoctor)
         createAppointments(appointmentData)
-        // router.push("/assets/Appointment")
+        router.push("/assets/Appointment")
     }
 
 
