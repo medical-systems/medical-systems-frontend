@@ -23,29 +23,21 @@ export default function Appointment() {
     Object.keys(doctors).forEach((doctorKey) => {
         listOfDoctors.push(doctors[doctorKey])
     });
-    const [selectedDoctor, setSelectedDoctor] = useState(...listOfDoctors);
+    const [selectedDoctor, setSelectedDoctor] = useState(0);
     Object.keys(info["treatments"]).forEach((treatmentKey) => {
         treatments.push(info["treatments"][treatmentKey])
     });
-    console.log(5555, listOfDoctors)
-    console.log(101010, treatments)
-    console.log("user",user)
 
 
     function bookingFormHandler(event) {
         event.preventDefault();
-        let notes = " ";
-        if (event.target.comment.value != null){
-            notes =event.target.comment.value
-        }
         const appointmentData = {
-            "doctor": selectedDoctor.id,
+            "doctor": selectedDoctor,
             "Appointment_date": event.target.date.value,
             "Appointment_time": event.target.time.value,
             "treatment": parseInt(event.target.treatment.value),
-            "notes": notes,
+            "notes": event.target.comment.value,
         }
-        console.log("doctor",selectedDoctor)
         createAppointments(appointmentData)
         router.push("/assets/Appointment")
     }

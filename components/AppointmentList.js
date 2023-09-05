@@ -1,8 +1,49 @@
-import Image from 'next/image';
-import { people } from '@/data';
+import { useAuth } from '@/contexts/auth';
+import useInfo from "@/hooks/useInfo";
+const axios = require('axios');
+import { useRouter } from 'next/router';
 
 export default function AppointmentList(props) {
-  
+  const { token } = useAuth()
+  const { info } = useInfo()
+  const router = useRouter();
+  const baseURL = process.env.NEXT_PUBLIC_URL
+
+  console.log("info", info)
+
+  function cancelAppointment(appointments) {
+    let url = `${baseURL}/api/v1/appointments/${appointments.id}/`
+    let statuses = info.appointment_statuses
+    console.log(15555, statuses)
+    let statusesId = null
+    let headers = {
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": "Bearer " + token.access
+      }
+    }
+    statuses.forEach(element => {
+      if (element.status == "Canceled") {
+        statusesId = element.id
+      }
+    });
+    console.log("statusesId",statusesId)
+
+    let updatedData = { "Appointment_status": statusesId}
+    axios.put(url, updatedData, headers)
+      .then(response => {
+        // Handle the successful response here
+        console.log('PUT request successful:', response.data);
+        router.push("/assets/Appointment")
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the PUT request
+        console.error('Error making PUT request:', error);
+      });
+
+
+  }
+
   return (
     <div>
       <div className="py-4 text-white bg-gray-100 ">
@@ -36,18 +77,18 @@ export default function AppointmentList(props) {
                 />
               </div> */}
               <div className="flex flex-col">
-                <p className="text-lg font-semibold">{appointments.doctorName}</p>
+                <p className="text-lg font-semibold">{appointments.name}</p>
                 <p className="text-gray-600">{appointments.email}</p>
                 <div className='flex'>
-                <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">
-                  {appointments.appointmentDate}</p>
                   <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">
-                  {appointments.appointmentTime}</p>
+                    {appointments.appointmentDate}</p>
+                  <p className="p-1 text-sm text-green-900 bg-green-200 rounded-lg">
+                    {appointments.appointmentTime}</p>
                 </div>
               </div>
             </div>
             <div className="flex items-start gap-2">
-              <button className="w-24 h-8 text-xs text-blue-500 bg-white border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white hover:border-transparent">
+              <button onClick={() => cancelAppointment(appointments)} className="w-24 h-8 text-xs text-blue-500 bg-white border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white hover:border-transparent">
                 Cancel
               </button>
               <button className="w-24 h-8 text-xs text-white bg-blue-500 border border-blue-500 rounded-md hover:bg-white hover:text-blue-500 hover:border-blue-500">

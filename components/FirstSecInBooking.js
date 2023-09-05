@@ -11,13 +11,12 @@ function classNames(...classes) {
   
   export default function Booking(props) {
     let people = props.people
-    const [selected, setSelected] = useState(...people)
+    const [selected, setSelected] = useState([])
     // const [doctor , secDoctor] = useState({})
 
     const selectDoctorHandler = (event) => {
-      console.log("event",event)
       setSelected(event)
-      props.onDataReceived(selected)
+      props.onDataReceived(event.id)
     }
   
     return (
@@ -43,7 +42,7 @@ function classNames(...classes) {
           <div className="flex flex-col w-full ">
             <Listbox.Label className="mb-3 block text-base text-xl text-[#07074D]">Selecte a doctor</Listbox.Label>
             <div className="inset-0 flex items-center justify-start mt-2 ">
-              <Listbox.Button className=" relative min-w-[320px] w-[320px]  border border-[#e0e0e0] bg-white py-1.5 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md rounded-md">
+              <Listbox.Button value={selected} className=" relative min-w-[320px] w-[320px]  border border-[#e0e0e0] bg-white py-1.5 px-3 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md rounded-md">
                 <span className="flex items-center p-2 ">
                   {/* <img src={selected.avatar} alt="" className="flex-shrink-0 w-5 h-5 rounded-full" /> */}
                   <span className="block ml-3 truncate">{selected.first_name} {selected.last_name}</span>
