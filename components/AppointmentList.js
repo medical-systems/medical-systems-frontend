@@ -12,8 +12,17 @@ export default function AppointmentList(props) {
   
 
  function handleHistory(){
- props.setappointmentArr(props.historyArr)
+ props.setappointmentArr([])
+ console.log(3333344444,props.historyArr)
 
+ props.setappointmentArr(props.historyArr)
+ 
+ }
+ function handleUpcoming(){
+  props.setappointmentArr([])
+  
+   props.setappointmentArr(props.upcomingArr)
+// console.log(3333344444,props.myList)
  }
   function cancelAppointment(appointments) {
     let url = `${baseURL}/api/v1/appointments/${appointments.id}/`
@@ -54,7 +63,7 @@ export default function AppointmentList(props) {
       <div className="py-4 text-white bg-gray-100 ">
         <div className="container flex items-center justify-between px-4 mx-20">
           <div className="space-x-6 ">
-            <button className="px-4 py-2 text-blue-500 bg-white rounded-full hover:bg-blue-100 hover:text-blue-700">
+            <button onClick={handleUpcoming} className="px-4 py-2 text-blue-500 bg-white rounded-full hover:bg-blue-100 hover:text-blue-700">
               Upcoming
             </button>
             <button onClick={handleHistory} className="px-4 py-2 text-blue-500 bg-white rounded-full hover:bg-blue-100 hover:text-blue-700">

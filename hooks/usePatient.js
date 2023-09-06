@@ -12,7 +12,7 @@ export default function usePatient() {
             "Authorization": "Bearer " + token.access
         }
       });
-      console.log(88888,response.data)
+    
       return response.data;
     } catch (error) {
       console.error('Error fetching doctors:', error);
