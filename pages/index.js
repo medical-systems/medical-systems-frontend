@@ -15,6 +15,7 @@ import ListOfDoctors from "@/components/ListOfDoctors"
 
 
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
       {/* <Testnav/> */}
       <Header />
       <ListOfDoctors/>
-      <HorizontalCard />
+      {/* <HorizontalCard /> */}
       <Footer />
     </>
   );

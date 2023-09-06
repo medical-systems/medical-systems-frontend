@@ -7,13 +7,7 @@ const Header = () => {
         "Crafting healthy and beautiful smiles",
         "A Destination for Exceptional Dental Care",
     ];
-    const images = [
-        "Welcom To eDental Clincs",
-        "Your Perfect Smile Starts Here",
-        "Crafting healthy and beautiful smiles",
-        "A Destination for Exceptional Dental Care",
-    ];
-
+  
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -27,9 +21,10 @@ const Header = () => {
     return (
         <div className="relative h-screen start-page">
             <div>
-                <img className="absolute inset-0 object-cover object-center w-full background-video h-50"
-                    src="benefits-of-regular-dental-visits-1080x675.jpeg" alt="" >
-                </img>
+            <video autoPlay loop muted className="background-video absolute inset-0 w-full  object-cover object-center">
+                    <source src="dental_clinic5.mp4" type="video/mp4" />
+                </video>
+              
             </div>
 
             <div className="absolute inset-0 flex items-center justify-center text-center">
