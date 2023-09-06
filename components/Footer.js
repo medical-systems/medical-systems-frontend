@@ -5,8 +5,19 @@ import Link from "next/link";
 function Footer() {
   return (
     <>
-      <footer className="flex flex-col items-center text-white bg-sky-950">
-        <div className="container px-6 pt-6">
+      <footer className="flex flex-col items-center text-white bg-sky-950 h-[60px] mt-8
+      ">
+      <div className="flex items-center w-screen justify-between h-1/2">
+      <div
+          className="w-full p-4 text-center h-1/2"
+        >
+          © 2023 All rights reserved
+          <a className="text-white" href="https://tailwind-elements.com/">
+            {"   "} || eDental Clinic{" "}
+          </a>
+        </div>
+
+        <div className="container px-6 pt-6 h-[60px] ">
           <div className="flex justify-center mb-6">
             <div className="flex items-center justify-center m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full h-9 w-9 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-0">
               <a
@@ -64,15 +75,6 @@ function Footer() {
             </li>
           </ul>
         </div> */}
-
-        <div
-          className="w-full p-4 text-center"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-        >
-          © 2023 All rights reserved
-          <a className="text-white" href="https://tailwind-elements.com/">
-            {"   "} || eDental Clinic{" "}
-          </a>
         </div>
       </footer>
     </>

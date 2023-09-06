@@ -78,7 +78,7 @@ const Navbar = () => {
                    </Menu.Button>
                  </div>
              
-                   <Menu.Items className="absolute right-0 z-10 w-40 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                   <Menu.Items className="absolute right-0 z-10 w-40 py-1 mt-2 origin-top-right bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
     
                      <Menu.Item>
                        {({ active }) => (

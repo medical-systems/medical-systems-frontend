@@ -1,5 +1,5 @@
 import React from 'react';
-import UserProfile from '@/components/UserProfile';
+import UpdateUserProfile from '@/components/UpdateUserProfile';
 import Navbar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { useAuth } from '@/contexts/auth';
@@ -11,7 +11,7 @@ export default function Signup() {
         <>
             <Navbar />
             <div>
-            <UserProfile />
+            <UpdateUserProfile />
             </div>
             <Footer/>
         </>
