@@ -15,11 +15,17 @@ export default function Appointment() {
     const { doctors } = useDoctors()
     const [patient,setPatient] = useState([])
     const [appointmentArr,setappointmentArr]= useState([])
+    
     const [historyArr , setHistoryArr]= useState([])
+    const [upcomingArr , setUpcomingArr]= useState([])
+    const currentDate = new Date();
+
     useEffect(()=>{
        
         fetchPatients()
         appointmentsArray()
+        
+       
     },[])
     async function fetchPatients() {
         let url = `${baseURL}/accounts/patients/`
@@ -36,17 +42,21 @@ export default function Appointment() {
               });
             const responseData = response.data;
             setPatient(responseData);
-            console.log(222233333,responseData);
+
         } catch (error) {
             console.log(error);
         }
     }
    function appointmentsArray() {
+    console.log(11111111111111,appointmentsList)
+    console.log(111111,doctors)
     const appointments = []
     const historyArray= []
+    const upcomingArray = []
     
     if (user.role == "Patient") {
-        console.log('hello world')
+        let obj={}
+        console.log(appointmentArr)
         Object.keys(appointmentsList).forEach((appointmentKey) => {
             Object.keys(doctors).forEach((doctorKey) => {
 
@@ -60,10 +70,9 @@ export default function Appointment() {
                         "email": doctors[doctorKey]["email"],
                     }
                     appointments.push(appointment)
-                     console.log(7777,appointmentsList[appointmentKey])
-
+                     
                 }
-                if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"] && appointmentsList[appointmentKey]["Appointment_status"]==2 ||appointmentsList[appointmentKey]["Appointment_status"]==3) {
+                 if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"] && (appointmentsList[appointmentKey]["Appointment_status"]==2 ||appointmentsList[appointmentKey]["Appointment_status"]==3)) {
                     let appointment = {
                         "id":appointmentsList[appointmentKey]["id"],
                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
@@ -73,6 +82,19 @@ export default function Appointment() {
                         "email": doctors[doctorKey]["email"],
                     }
                  historyArray.push(appointment)
+                    
+                }
+                
+                if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"] && (new Date(appointmentsList[appointmentKey]["Appointment_date"]) > currentDate && appointmentsList[appointmentKey]["Appointment_status"]==1)) {
+                    let appointment = {
+                        "id":appointmentsList[appointmentKey]["id"],
+                        "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
+                        "appointmentTime": appointmentsList[appointmentKey]["Appointment_time"],
+                        "Payment": appointmentsList[appointmentKey]["payment"],
+                        "name": doctors[doctorKey]["first_name"] + " " + doctors[doctorKey]["last_name"],
+                        "email": doctors[doctorKey]["email"],
+                    }
+                    upcomingArray.push(appointment)
                     
                 }
             });
@@ -97,7 +119,7 @@ export default function Appointment() {
                     appointments.push(appointment)
 
                 }
-                if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && appointmentsList[appointmentKey]["Appointment_status"]==2 ||appointmentsList[appointmentKey]["Appointment_status"]==3) {
+                else if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && (appointmentsList[appointmentKey]["Appointment_status"]==2 ||appointmentsList[appointmentKey]["Appointment_status"]==3)) {
                     let appointment = {
                         "id":appointmentsList[appointmentKey]["id"],
                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
@@ -108,52 +130,34 @@ export default function Appointment() {
                     }
                     historyArray.push(appointment)
                 }
+                else if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && (new Date(appointmentsList[appointmentKey]["Appointment_date"]) > currentDate && appointmentsList[appointmentKey]["Appointment_status"]==1)) {
+                    let appointment = {
+                        "id":appointmentsList[appointmentKey]["id"],
+                        "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
+                        "appointmentTime": appointmentsList[appointmentKey]["Appointment_time"],
+                        "Payment": appointmentsList[appointmentKey]["payment"],
+                        "name": patient[patientKey]["first_name"] + " " + patient[patientKey]["last_name"],
+                        "email": patient[patientKey]["email"],
+                    }
+                    upcomingArray.push(appointment)
+                }
             });
+
         });
 
     }
-    console.log(44445555,appointmentsList)
-    console.log(66666,historyArray)
+    // console.log(66666, new Date('2023-09-20'))
+    // console.log(9999,  (currentDate< new Date('2023-09-18')))
+    // console.log(55555,currentDate)
+    // console.log(222222,upcomingArray)
+    console.log(11112222,upcomingArray)
     setHistoryArr(historyArray)
+    
     setappointmentArr(appointments)
+    setUpcomingArr(upcomingArray);
+
    }
-//     const appointments = []
-//     if (user.role == "Patient") {
-//         Object.keys(appointmentsList).forEach((appointmentKey) => {
-//             Object.keys(doctors).forEach((doctorKey) => {
-//                 if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"] && appointmentsList[appointmentKey]["Appointment_status"]==1) {
-//                     let appointment = {
-//                         "id":appointmentsList[appointmentKey]["id"],
-//                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
-//                         "appointmentTime": appointmentsList[appointmentKey]["Appointment_time"],
-//                         "Payment": appointmentsList[appointmentKey]["payment"],
-//                         "name": doctors[doctorKey]["first_name"] + " " + doctors[doctorKey]["last_name"],
-//                         "email": doctors[doctorKey]["email"],
-//                     }
-//                     appointments.push(appointment)
-//                 }
-//             });
-//         });
-//     }
-//     else {
-//         Object.keys(appointmentsList).forEach((appointmentKey) => {
-//             Object.keys(patient).forEach((patientKey) => {
-                
-//                 if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"]) {
-//                     let appointment = {
-//                         "id":appointmentsList[appointmentKey]["id"],
-//                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
-//                         "appointmentTime": appointmentsList[appointmentKey]["Appointment_time"],
-//                         "Payment": appointmentsList[appointmentKey]["payment"],
-//                         "name": patient[patientKey]["first_name"] + " " + patient[patientKey]["last_name"],
-//                         "email": patient[patientKey]["email"],
-//                     }
-//                     appointments.push(appointment)
-//                 }
-//             });
-//         });
-// console.log(7777788888,appointments)
-//     }
+
 
     function updateAppointmentHandler(event) {
         event.preventDefault();
@@ -173,7 +177,7 @@ export default function Appointment() {
                 {/* Your home screen components */}
                 <Navbar />
                 <div className="flex min-h-screen ">
-                    <AppointmentList myList={appointmentArr} setappointmentArr={setappointmentArr} historyArr={historyArr}/>
+                    <AppointmentList myList={appointmentArr} setappointmentArr={setappointmentArr} historyArr={historyArr} upcomingArr={upcomingArr} />
                 </div>
                 <Footer />
             </div>

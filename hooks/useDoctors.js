@@ -9,7 +9,7 @@ export default function useDoctors() {
       const response = await axios.get(url, {
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log(88888,response.data)
+  
       return response.data;
     } catch (error) {
       console.error('Error fetching doctors:', error);
