@@ -50,8 +50,8 @@ export default function Home() {
       <NavBar/>
       {/* <Testnav/> */}
       <Header />
-      <ListOfDoctors/>
-      <HorizontalCard />
+      <ListOfDoctors doctor={doctors}/>
+      {/* <HorizontalCard /> */}
       <Footer />
     </>
   );
