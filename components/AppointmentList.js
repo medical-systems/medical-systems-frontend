@@ -9,12 +9,16 @@ export default function AppointmentList(props) {
   const router = useRouter();
   const baseURL = process.env.NEXT_PUBLIC_URL
 
-  console.log("info", info)
+  
 
+ function handleHistory(){
+ props.setappointmentArr(props.historyArr)
+
+ }
   function cancelAppointment(appointments) {
     let url = `${baseURL}/api/v1/appointments/${appointments.id}/`
     let statuses = info.appointment_statuses
-    console.log(15555, statuses)
+   
     let statusesId = null
     let headers = {
       headers: {
@@ -27,6 +31,7 @@ export default function AppointmentList(props) {
         statusesId = element.id
       }
     });
+
     console.log("statusesId",statusesId)
 
     let updatedData = { "Appointment_status": statusesId}
@@ -52,7 +57,7 @@ export default function AppointmentList(props) {
             <button className="px-4 py-2 text-blue-500 bg-white rounded-full hover:bg-blue-100 hover:text-blue-700">
               Upcoming
             </button>
-            <button className="px-4 py-2 text-blue-500 bg-white rounded-full hover:bg-blue-100 hover:text-blue-700">
+            <button onClick={handleHistory} className="px-4 py-2 text-blue-500 bg-white rounded-full hover:bg-blue-100 hover:text-blue-700">
               History
             </button>
           </div>
