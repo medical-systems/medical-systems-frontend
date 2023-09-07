@@ -85,14 +85,14 @@ const people = [
 
 export default function ListOfDoctors() {
   return (
-    <div className="bg-white py-6 sm:py-8 mx-4 mt-4 rounded-lg">
-      <h2 className='text-center my-12 text-2xl font-semibold leading-7 tracking-tight text-sky-950'>Our Doctors</h2>
-      <div className="mx-auto flex flex-wrap justify-center gap-x-8 gap-y-6 px-4 lg:px-8 xl:gap-x-12">
+    <div className="py-6 mx-4 mt-16 bg-white rounded-lg sm:py-8">
+      <h2 className='my-12 text-2xl font-semibold leading-7 tracking-tight text-center text-sky-950'>Our Doctors</h2>
+      <div className="flex flex-wrap justify-center px-4 mx-auto gap-x-8 gap-y-6 lg:px-8 xl:gap-x-12">
         {people.map((person) => (
-          <div key={person.name} className="bg-gray-100 p-2 rounded-lg shadow-xl yellow-shadow">
-            <img className="h-20 w-20 rounded-full mx-auto" src={person.avatar} alt="" />
-            <div className="text-center mt-4">
-              <h3 className="text-lg font-semibold leading-7 tracking-tight text-gray-900 w-40">
+          <div key={person.name} className="p-2 bg-gray-100 rounded-lg shadow-xl yellow-shadow">
+            <img className="w-20 h-20 mx-auto rounded-full" src={person.avatar} alt="" />
+            <div className="mt-4 text-center">
+              <h3 className="w-40 text-lg font-semibold leading-7 tracking-tight text-gray-900">
                 {person.name}
               </h3>
             </div>

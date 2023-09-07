@@ -59,7 +59,6 @@ export default function Appointment() {
         console.log(appointmentArr)
         Object.keys(appointmentsList).forEach((appointmentKey) => {
             Object.keys(doctors).forEach((doctorKey) => {
-
                 if (appointmentsList[appointmentKey]["doctor"] == doctors[doctorKey]["id"] && appointmentsList[appointmentKey]["Appointment_status"]==1) {
                     let appointment = {
                         "id":appointmentsList[appointmentKey]["id"],
@@ -95,15 +94,11 @@ export default function Appointment() {
                         "email": doctors[doctorKey]["email"],
                     }
                     upcomingArray.push(appointment)
-                    
                 }
             });
         });
-       
     }
-    
     else {
-       
         Object.keys(appointmentsList).forEach((appointmentKey) => {
             Object.keys(patient).forEach((patientKey) => {
                 
@@ -119,7 +114,7 @@ export default function Appointment() {
                     appointments.push(appointment)
 
                 }
-                else if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && (appointmentsList[appointmentKey]["Appointment_status"]==2 ||appointmentsList[appointmentKey]["Appointment_status"]==3)) {
+                if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && (appointmentsList[appointmentKey]["Appointment_status"]==2 ||appointmentsList[appointmentKey]["Appointment_status"]==3)) {
                     let appointment = {
                         "id":appointmentsList[appointmentKey]["id"],
                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
@@ -130,7 +125,7 @@ export default function Appointment() {
                     }
                     historyArray.push(appointment)
                 }
-                else if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && (new Date(appointmentsList[appointmentKey]["Appointment_date"]) > currentDate && appointmentsList[appointmentKey]["Appointment_status"]==1)) {
+                if (appointmentsList[appointmentKey]["patient"] == patient[patientKey]["id"] && (new Date(appointmentsList[appointmentKey]["Appointment_date"]) > currentDate && appointmentsList[appointmentKey]["Appointment_status"]==1)) {
                     let appointment = {
                         "id":appointmentsList[appointmentKey]["id"],
                         "appointmentDate": appointmentsList[appointmentKey]["Appointment_date"],
@@ -176,7 +171,7 @@ export default function Appointment() {
             <div className=" max-h-[2000px] ">
                 {/* Your home screen components */}
                 <Navbar />
-                <div className="flex min-h-screen ">
+                <div className="min-h-screen">
                     <AppointmentList myList={appointmentArr} setappointmentArr={setappointmentArr} historyArr={historyArr} upcomingArr={upcomingArr} />
                 </div>
                 <Footer />

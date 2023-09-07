@@ -21,20 +21,20 @@ const Header = () => {
     return (
         <div className="relative h-screen start-page">
             <div>
-            <video autoPlay loop muted className="background-video absolute inset-0 w-full  object-cover object-center">
+            <video autoPlay loop muted className="absolute inset-0 object-cover object-center w-full background-video">
                     <source src="dental_clinic5.mp4" type="video/mp4" />
                 </video>
               
             </div>
 
-            <div className="absolute inset-0 flex items-center justify-center text-center">
+            {/* <div className="absolute inset-0 flex items-center justify-center text-center">
                 <div className=" bg-slate-200 bg-opacity-5 max-w-90 max-h-36 p-9"  >
                     <h1 className="text-4xl animate-pulse fadeInRight animate-slow">
                         {phrases[currentIndex]}
                     </h1>
                 </div>
 
-            </div>
+            </div> */}
 
         </div>
 

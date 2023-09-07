@@ -5,9 +5,9 @@ import Link from "next/link";
 function Footer() {
   return (
     <>
-      <footer className="flex flex-col items-center text-white bg-sky-950 h-[60px] mt-8
+      <footer className="flex flex-col items-center text-white bg-sky-950 h-[60px] 
       ">
-      <div className="flex items-center w-screen justify-between h-1/2">
+      <div className="flex items-center justify-between w-screen h-1/2">
       <div
           className="w-full p-4 text-center h-1/2"
         >
